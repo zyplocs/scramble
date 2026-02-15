@@ -22,10 +22,12 @@ struct ContentView: View {
                     Text("Dynamic Row \($0)")
                 }
             }
-        }
-        
-        List(people, id: \.self) {
-            Text($0)
+            
+            Section("People") {
+                ForEach(people, id: \.self) { person in
+                    Text(person)
+                }
+            }
         }
     }
 }
