@@ -8,7 +8,7 @@
 import SwiftMath
 import SwiftUI
 
-struct dw: View {
+struct MathListView: View {
     let people = ["C3PO", "Leia", "Luke", "Anakin"]
     let digits: [Double] = [46, 5932, 271, 535]
 
