@@ -8,9 +8,9 @@
 import SwiftMath
 import SwiftUI
 
-struct ContentView: View {
+struct dw: View {
     let people = ["C3PO", "Leia", "Luke", "Anakin"]
-    let digits: [Double] = [42, 5932, 27, 2580]
+    let digits: [Double] = [46, 5932, 271, 535]
 
     var body: some View {
         List {
@@ -22,8 +22,13 @@ struct ContentView: View {
 
             Section("Square Roots") {
                 ForEach(digits, id: \.self) { digit in
+                    let root = digit.squareRoot()
+                    let twoDP = root.formatted(
+                        .number.precision(.fractionLength(4))
+                    )
                     MathView(
-                        latex: #" \sqrt{\#(Int(digit))} "#,
+                        latex:
+                            #" \sqrt{\#(Int(digit))} \approx \#(twoDP) "#,
                         fontSize: 20,
                         alignment: .left
                     )
@@ -47,5 +52,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MathListView()
 }
